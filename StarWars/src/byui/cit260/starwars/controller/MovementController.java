@@ -11,9 +11,9 @@ package byui.cit260.starwars.controller;
  */
 public class MovementController {
   
-    public double pythagorean(double sideA, double sideB, double sideC) {
+    public double pythagorean(double sideA, double sideB) {
         
-        if (sideA <= 0 || sideB <= 0 || sideC <= 0) {
+        if (sideA <= 0 || sideB <= 0) {
             return -1;
         }
         double hypotenuse = sideA * sideA + sideB * sideB;
