@@ -15,7 +15,8 @@ public class LightsaberController {
         if (radius <= 0 || height <= 0) {
             return -1;
         }
-        double volume = Math.Pi * radius *radius * (height/3);
+        double volume = Math.PI * radius *radius * (height/3);
         
         return volume;
+    }
 }
