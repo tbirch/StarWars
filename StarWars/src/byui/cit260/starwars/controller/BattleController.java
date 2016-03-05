@@ -18,4 +18,5 @@ public class BattleController {
         }
         double surfaceArea = 2 * sideA * sideB + 2 * sideB *sideC + 2 * sideA * sideC;
         return surfaceArea;
+    }
 }
