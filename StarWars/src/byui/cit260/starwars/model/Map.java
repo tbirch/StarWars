@@ -61,8 +61,8 @@ public Location getLocation(int row, int col) {
 
     @Override
     public String toString() {
-        return Map{" + "matrix=" + matrix + "};
-        
+//        return Map{" + "matrix=" + matrix + "};
+        return "";
     }
     
 }

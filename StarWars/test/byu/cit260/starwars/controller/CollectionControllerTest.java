@@ -5,6 +5,7 @@
  */
 package byu.cit260.starwars.controller;
 
+import byui.cit260.starwars.controller.CollectionController;
 import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;

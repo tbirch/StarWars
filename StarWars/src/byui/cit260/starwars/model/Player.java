@@ -15,6 +15,7 @@ import java.util.Objects;
 public class Player implements Serializable{
     
     private String name;
+    private Location location;
     
     public Player() {
         
@@ -26,6 +27,14 @@ public class Player implements Serializable{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     @Override
