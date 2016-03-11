@@ -12,19 +12,34 @@ import java.util.Arrays;
  * @author Taylor
  */
 public class Map {
-    
+
     private static final int NUM_ROWS = 5;
     private static final int NUM_COLS = 5;
-    
-    private Location [][] matrix;
-    
-    public Map(){
-        matrix = new Location [NUM_ROWS][NUM_COLS];
-}
 
-public Location getLocation(int row, int col) {
-    return matrix [row] [col];
-}
+    private Location[][] matrix;
+
+    public Map() {
+        matrix = new Location[NUM_ROWS][NUM_COLS];
+        init();
+    }
+
+    private void init() {
+
+        for (int row = 0; row < NUM_ROWS; row++) {
+            for (int col = 0; col < NUM_ROWS; col++) {
+                Location loc = new Location();
+                loc.setRow(row);
+                loc.setCol(col);
+                
+                matrix[row][col] = loc;
+            }
+        }
+
+    }
+
+    public Location getLocation(int row, int col) {
+        return matrix[row][col];
+    }
 
     public Location[][] getMatrix() {
         return matrix;
@@ -64,5 +79,5 @@ public Location getLocation(int row, int col) {
 //        return Map{" + "matrix=" + matrix + "};
         return "";
     }
-    
+
 }

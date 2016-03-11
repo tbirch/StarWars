@@ -5,7 +5,9 @@
  */
 package byui.cit260.starwars.view;
 
+import byui.cit260.starwars.controller.GameController;
 import java.util.Scanner;
+import starwars.StarWars;
 
 /**
  *
@@ -50,7 +52,7 @@ public class MainMenuView extends View {
     }
 
     private void startNewGame() {
-//        ProgramController.createNewGame(SaveTheCity.getPlayer());
+        GameController.createNewGame(StarWars.getPlayer());
         
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();

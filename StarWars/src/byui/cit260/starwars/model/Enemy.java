@@ -7,17 +7,30 @@ package byui.cit260.starwars.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Random;
 
 /**
  *
  * @author Jason
  */
-public class Boss implements Serializable{
+public class Enemy implements Serializable{
+    
+    private static final int MAX_HP = 75;
+    private static final int MIN_HP = 50;
+    private static final int MAX_DAMAGE = 25;
     
     private String name;
+    private int health;
+    private int attackDamage;
     private String forcePower;
 
-    public Boss(String name, String forcePower) {
+    public Enemy() {
+        Random random = new Random();
+        health = random.nextInt(MAX_HP - MIN_HP) + MIN_HP;
+        attackDamage = random.nextInt(MAX_DAMAGE);
+    }
+    
+    public Enemy(String name, String forcePower) {
         this.name = name;
         this.forcePower = forcePower;
     }
@@ -38,6 +51,22 @@ public class Boss implements Serializable{
         this.forcePower = forcePower;
     }
 
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public int getAttackDamage() {
+        return attackDamage;
+    }
+
+    public void setAttackDamage(int attackDamage) {
+        this.attackDamage = attackDamage;
+    }
+    
     @Override
     public String toString() {
         return "Boss{" + "name=" + name + ", forcePower=" + forcePower + '}';
@@ -62,7 +91,7 @@ public class Boss implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Boss other = (Boss) obj;
+        final Enemy other = (Enemy) obj;
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }

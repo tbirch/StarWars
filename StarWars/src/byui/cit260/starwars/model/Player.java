@@ -14,11 +14,17 @@ import java.util.Objects;
  */
 public class Player implements Serializable{
     
+    public static final int MIN_DAMAGE = 10;
+    
     private String name;
     private Location location;
+    private Location previousLocation;
+    private int health;
+    private int maxDamage;
     
     public Player() {
-        
+        health = 100;
+        maxDamage = 25;
     }
 
     public String getName() {
@@ -29,12 +35,33 @@ public class Player implements Serializable{
         this.name = name;
     }
 
+    public int getMaxDamage() {
+        return maxDamage;
+    }
+
+    public void setMaxDamage(int maxDamage) {
+        this.maxDamage = maxDamage;
+    }
+
     public Location getLocation() {
         return location;
     }
 
     public void setLocation(Location location) {
+        this.previousLocation = this.location == null ? location : this.location;
         this.location = location;
+    }
+
+    public Location getPreviousLocation() {
+        return previousLocation;
+    }
+    
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
     }
 
     @Override

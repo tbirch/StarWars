@@ -5,6 +5,7 @@
  */
 package byui.cit260.starwars.controller;
 
+import byui.cit260.starwars.model.Enemy;
 import byui.cit260.starwars.model.Game;
 import byui.cit260.starwars.model.Map;
 import byui.cit260.starwars.model.Player;
@@ -36,6 +37,11 @@ public class GameController {
         g.setMap(gameMap);
         
         player.setLocation(gameMap.getLocation(0, 0));
+        
+        Enemy greedo = new Enemy();
+        greedo.setName("Greedo");
+        
+        gameMap.getLocation(0, 1).setEnemy(greedo);
         
         StarWars.setGame(g);
     }

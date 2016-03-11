@@ -5,6 +5,9 @@
  */
 package byui.cit260.starwars.view;
 
+import byui.cit260.starwars.model.Location;
+import starwars.StarWars;
+
 /**
  *
  * @author Daniel
@@ -71,6 +74,15 @@ public class GameMenuView extends View {
     }
 
     private void moveEast() {
+        //TODO DON'T DO THIS
+        Location loc = StarWars.getGame().getPlayer().getLocation();
+        Location newLoc = StarWars.getGame().getMap().getLocation(loc.getRow(), loc.getCol() + 1);
+        StarWars.getGame().getPlayer().setLocation(newLoc);
+        
+        if(newLoc.getEnemy() != null) {
+            BattleView bv = new BattleView();
+            bv.display();
+        }
 //        MovementController mc = new MovementController();
 //        if(mc.moveEast(SaveTheCity.getGame()) == false) {
 //            System.out.println("You cannot move there");
@@ -96,7 +108,7 @@ public class GameMenuView extends View {
     }
     
     private void viewCurrentLocation() {
-//        Location l = SaveTheCity.getGame().getPlayer().getLocation();
-//        System.out.println("You are at: (" + l.getRow() + ", " + l.getCol() + ")");
+        Location l = StarWars.getGame().getPlayer().getLocation();
+        System.out.println("You are at: (" + l.getRow() + ", " + l.getCol() + ")");
     }
 }

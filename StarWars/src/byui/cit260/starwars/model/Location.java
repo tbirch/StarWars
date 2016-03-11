@@ -14,28 +14,13 @@ import java.util.Objects;
  */
 public class Location implements Serializable{
     
-    private String row;
-    private String column;
+    
     private String visited;
     private JediMaster jediMaster;
-    private Boss boss;
+    private Enemy enemy;
     private Item item;
-
-    public String getRow() {
-        return row;
-    }
-
-    public void setRow(String row) {
-        this.row = row;
-    }
-
-    public String getColumn() {
-        return column;
-    }
-
-    public void setColumn(String column) {
-        this.column = column;
-    }
+    private int row;
+    private int col;
 
     public String getVisited() {
         return visited;
@@ -45,6 +30,22 @@ public class Location implements Serializable{
         this.visited = visited;
     }
 
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getCol() {
+        return col;
+    }
+
+    public void setCol(int col) {
+        this.col = col;
+    }
+    
     public JediMaster getJediMaster() {
         return jediMaster;
     }
@@ -53,12 +54,12 @@ public class Location implements Serializable{
         this.jediMaster = jediMaster;
     }
 
-    public Boss getBoss() {
-        return boss;
+    public Enemy getEnemy() {
+        return enemy;
     }
 
-    public void setBoss(Boss boss) {
-        this.boss = boss;
+    public void setEnemy(Enemy enemy) {
+        this.enemy = enemy;
     }
 
     public Item getItem() {
@@ -73,10 +74,9 @@ public class Location implements Serializable{
     public int hashCode() {
         int hash = 3;
         hash = 97 * hash + Objects.hashCode(this.row);
-        hash = 97 * hash + Objects.hashCode(this.column);
         hash = 97 * hash + Objects.hashCode(this.visited);
         hash = 97 * hash + Objects.hashCode(this.jediMaster);
-        hash = 97 * hash + Objects.hashCode(this.boss);
+        hash = 97 * hash + Objects.hashCode(this.enemy);
         hash = 97 * hash + Objects.hashCode(this.item);
         return hash;
     }
@@ -98,7 +98,7 @@ public class Location implements Serializable{
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", jediMaster=" + jediMaster + ", boss=" + boss + ", item=" + item + '}';
+        return "Location{ visited=" + visited + ", jediMaster=" + jediMaster + ", boss=" + enemy + ", item=" + item + '}';
     }
     
     
