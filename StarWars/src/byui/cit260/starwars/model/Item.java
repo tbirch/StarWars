@@ -15,11 +15,31 @@ public class Item {
 
     private String name;
     private String color;
-    private String size;
-    private String power;
+    private String healthIncrease;
+    private String attackDamageIncrease;
+ 
+public static Item[] createItemList(){ 
+    //Created array list of Items
+    Item[]item;
+        item = new Item[3];
+    Item LightSaber = new Item();
+    LightSaber.setDescription("Light Saber");
+    LightSaber.setColor("Green");
+    LightSaber.sethealthIncrease(0);
+    LightSaber.setattackDamageIncrease(10);
     
+    Item Blaster = new Item();
+    Blaster.setDescription("Blaster");
+    Blaster.setColor("Red");
+    Blaster.sethealthIncrease(0);
+    Blaster.setattackDamageIncrease(10);
     
-    
+    Item Food = new Item();
+    Food.setDescription("Food");
+    Food.setColor("Brown");
+    Food.sethealthIncrease(10);
+    Food.setattackDamageIncrease(0);
+}
     @Override
     public String toString() {
         return "Item{" + '}';
@@ -42,19 +62,19 @@ public class Item {
     }
 
     public String getSize() {
-        return size;
+        return healthIncrease;
     }
 
     public void setSize(String size) {
-        this.size = size;
+        this.healthIncrease = size;
     }
 
     public String getPower() {
-        return power;
+        return attackDamageIncrease;
     }
 
     public void setPower(String power) {
-        this.power = power;
+        this.attackDamageIncrease = power;
     }
 
     @Override
@@ -62,8 +82,8 @@ public class Item {
         int hash = 7;
         hash = 29 * hash + Objects.hashCode(this.name);
         hash = 29 * hash + Objects.hashCode(this.color);
-        hash = 29 * hash + Objects.hashCode(this.size);
-        hash = 29 * hash + Objects.hashCode(this.power);
+        hash = 29 * hash + Objects.hashCode(this.healthIncrease);
+        hash = 29 * hash + Objects.hashCode(this.attackDamageIncrease);
         return hash;
     }
 
@@ -85,13 +105,26 @@ public class Item {
         if (!Objects.equals(this.color, other.color)) {
             return false;
         }
-        if (!Objects.equals(this.size, other.size)) {
+        if (!Objects.equals(this.healthIncrease, other.healthIncrease)) {
             return false;
         }
-        if (!Objects.equals(this.power, other.power)) {
+        if (!Objects.equals(this.attackDamageIncrease, other.attackDamageIncrease)) {
             return false;
         }
         return true;
+    }
+
+    private void setDescription(String light_Saber) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+    private void sethealthIncrease(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setattackDamageIncrease(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

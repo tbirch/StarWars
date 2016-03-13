@@ -13,8 +13,8 @@ import java.util.Arrays;
  */
 public class Map {
 
-    private static final int NUM_ROWS = 5;
-    private static final int NUM_COLS = 5;
+    public static final int NUM_ROWS = 5;
+    public static final int NUM_COLS = 5;
 
     private Location[][] matrix;
 
