@@ -18,7 +18,7 @@ public class Item {
     private String healthIncrease;
     private String attackDamageIncrease;
  
-public static Item[] createItemList(){ 
+public static Item[] createItemList(Item[] ItemList){ 
     //Created array list of Items
     Item[]item;
         item = new Item[3];
@@ -39,6 +39,8 @@ public static Item[] createItemList(){
     Food.setColor("Brown");
     Food.sethealthIncrease(10);
     Food.setattackDamageIncrease(0);
+    
+    return ItemList;
 }
     @Override
     public String toString() {

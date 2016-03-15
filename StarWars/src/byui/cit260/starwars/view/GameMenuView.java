@@ -23,6 +23,7 @@ public class GameMenuView extends View {
                 + "\nW - Move West"
                 + "\nM - View Map"
                 + "\nL - View Current Location"
+                + "\nH - View Current Health"
                 + "\nQ - Quit");
     }
 
@@ -52,6 +53,8 @@ public class GameMenuView extends View {
             case 'L':
                 viewCurrentLocation();
                 break;
+            case 'H':
+                viewHealth();
             case 'Q':
                 return true;
             default:
@@ -110,5 +113,11 @@ public class GameMenuView extends View {
     private void viewCurrentLocation() {
         Location l = StarWars.getGame().getPlayer().getLocation();
         System.out.println("You are at: (" + l.getRow() + ", " + l.getCol() + ")");
+    }
+
+    private void viewHealth(int h) {
+        int Health h = StarWars.getGame() .getPlayer().getHealth();
+        System.out.println("Your current health: (" + h + ")");
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
