@@ -23,7 +23,7 @@ public class GameMenuView extends View {
                 + "\nW - Move West"
                 + "\nM - View Map"
                 + "\nL - View Current Location"
-                + "\nH - View Current Health"
+                + "\nH - View Health Stats"
                 + "\nQ - Quit");
     }
 
