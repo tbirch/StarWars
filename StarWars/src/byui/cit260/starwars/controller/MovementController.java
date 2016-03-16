@@ -5,6 +5,7 @@
  */
 package byui.cit260.starwars.controller;
 
+import byu.cit260.starwars.exceptions.MovementControlException;
 import byui.cit260.starwars.model.Game;
 import byui.cit260.starwars.model.Location;
 import byui.cit260.starwars.model.Map;
@@ -16,14 +17,14 @@ import byui.cit260.starwars.model.Player;
  */
 public class MovementController {
     
-    public boolean moveNorth(Game game) {
+    public boolean moveNorth(Game game) throws MovementControlException {
         
         Player player = game.getPlayer();
         Location currentLocation = player.getLocation();
         Map map = game.getMap();
         
         if(currentLocation.getRow() == 0) {
-            return false;
+            throw new MovementControlException("Cannot move the player off the map");
         }
         
         int currentCol = currentLocation.getCol();
