@@ -6,7 +6,9 @@
 package byui.cit260.starwars.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
+import java.util.EnumSet
 
 /**
  *
@@ -16,9 +18,15 @@ public class ForcePower implements Serializable{
     
     private String name;
     private String description;
-    private String power;
+    private int power;
+    
+    public enum ForcePowerName {
+        choke (10),
+        push (20),
+        lighting( 30)
+    }
 
-    public ForcePower(String name, String description, String power) {
+    public ForcePower(String name, String description, int power) {
         this.name = name;
         this.description = description;
         this.power = power;
@@ -40,11 +48,11 @@ public class ForcePower implements Serializable{
         this.description = description;
     }
 
-    public String getPower() {
+    public int getPower() {
         return power;
     }
 
-    public void setPower(String power) {
+    public void setPower(int power) {
         this.power = power;
     }
 
