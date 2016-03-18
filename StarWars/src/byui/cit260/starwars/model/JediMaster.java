@@ -16,6 +16,13 @@ public class JediMaster implements Serializable{
     
     private String name;
     private String forcePower;
+    
+    public enum Master {
+        Yoda,
+        ObiWan,
+        QuiGonGin,
+        Windu
+    }
 
     public JediMaster(String name, String forcePower) {
         this.name = name;
