@@ -37,14 +37,14 @@ public class MovementController {
         return true;
     }
     
-    public boolean moveEast(Game game) {
+    public boolean moveEast(Game game)throws MovementControlException {
         
         Player player = game.getPlayer();
         Location currentLocation = player.getLocation();
         Map map = game.getMap();
         
         if(currentLocation.getCol() == Map.NUM_COLS - 1) {
-            return false;
+            throw new MovementControlException("Cannot move the player off the map");
         }
         
         player.setLocation(map.getLocation(currentLocation.getRow(), currentLocation.getCol() + 1));
@@ -52,14 +52,14 @@ public class MovementController {
         return true;
     }
     
-    public boolean moveSouth(Game game) {
+    public boolean moveSouth(Game game)throws MovementControlException {
         
         Player player = game.getPlayer();
         Location currentLocation = player.getLocation();
         Map map = game.getMap();
         
         if(currentLocation.getRow() == Map.NUM_ROWS - 1) {
-            return false;
+            throw new MovementControlException("Cannot move the player off the map");
         }
         
         player.setLocation(map.getLocation(currentLocation.getRow() + 1, currentLocation.getCol()));
@@ -67,14 +67,14 @@ public class MovementController {
         return true;
     }
     
-    public boolean moveWest(Game game) {
+    public boolean moveWest(Game game)throws MovementControlException {
         
         Player player = game.getPlayer();
         Location currentLocation = player.getLocation();
         Map map = game.getMap();
         
         if(currentLocation.getCol() == 0) {
-            return false;
+            throw new MovementControlException("Cannot move the player off the map");
         }
         
         player.setLocation(map.getLocation(currentLocation.getRow(), currentLocation.getCol() - 1));

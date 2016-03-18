@@ -70,8 +70,8 @@ public class GameMenuView extends View {
     }
 
     private void moveNorth() {
-//        MovementController mc = new MovementController();
-//        if(mc.moveNorth(SaveTheCity.getGame()) == false) {
+        MovementController mc = new MovementController();
+        if(mc.moveNorth(SaveTheCity.getGame()) == false) {
 //            System.out.println("You cannot move there");
 //        }
     }
@@ -115,7 +115,7 @@ public class GameMenuView extends View {
         System.out.println("You are at: (" + l.getRow() + ", " + l.getCol() + ")");
     }
 
-    private void viewHealth(int h) {
+    private void viewHealth() {
         int Health h = StarWars.getGame() .getPlayer().getHealth();
         System.out.println("Your current health: (" + h + ")");
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

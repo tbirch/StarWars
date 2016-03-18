@@ -9,33 +9,31 @@ package byu.cit260.starwars.exceptions;
  *
  * @author Taylor
  */
-public class MovementControlException extends Exception {
+public class Throwable extends Exception {
 
     private String message;
 
-    public MovementControlException() {
+    public Throwable() {
         this.message = "Run time error, please reset the game";
     }
 
-    public MovementControlException(String message) {
+    public Throwable(String message) {
         super(message);
-        this.message = "Run time error, please reset the game"; 
-       
+        this.message = "Run time error, please reset the game";
     }
 
-    public MovementControlException(String message, Throwable cause) {
+    public Throwable(String message, java.lang.Throwable cause) {
         super(message, cause);
     }
 
-    public MovementControlException(Throwable cause) {
+    public Throwable(java.lang.Throwable cause) {
         super(cause);
     }
 
-    public MovementControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    public Throwable(String message, java.lang.Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 
     
-   
     
 }
