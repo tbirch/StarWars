@@ -8,6 +8,10 @@ package starwars;
 import byui.cit260.starwars.model.Game;
 import byui.cit260.starwars.model.Player;
 import byui.cit260.starwars.view.StartProgramView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 /**
  *
@@ -18,14 +22,38 @@ public class StarWars {
     private static Player player;
     private static Game game;
     
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+    
+    private static PrintWriter logFile = null;
+    
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
+        try{
+            StarWars.inFile = new BufferedReader(new InputStreamReader(System.in));
+            StarWars.outFile = new PrintWriter(System.out, true);
         StartProgramView start = new StartProgramView();
         start.startProgram();
-        
+        return;
+        } 
+        catch (Throwable e) {
+            System.out.println("Exveption: " + e.toString() + "\nCause: " + e.getCause() + "\nMessage: " + e.getMessage());
+        }   e.printStackTrace();
+        finally{
+            try{
+            if (StarWars.inFile != null)
+                    StarWars.inFile.close();
+            if (StarWars.outFile != null()
+                    StarWars.outFile.close();
+                }
+             catch (IOException ex){
+                System.out.println("Error clossing files");
+                }
+                }
     }
 
     public static Player getPlayer() {
@@ -43,5 +71,23 @@ public class StarWars {
     public static void setGame(Game game) {
         StarWars.game = game;
     }
-    
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        StarWars.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        StarWars.inFile = inFile;
+    }
+
+    public static PrintWriter getOutFile() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
