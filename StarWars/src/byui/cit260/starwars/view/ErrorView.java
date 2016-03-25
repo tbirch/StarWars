@@ -15,11 +15,14 @@ import starwars.StarWars;
 public class ErrorView {
     
     private static final PrintWriter errorFile = StarWars.getOutFile();
+    private static final PrintWriter logFile = StarWars.getLogFile();
     
     public static void display(String className, String errorMessage){
         errorFile.println(
             "------------------------------------"
             + "\n- Error -" + errorMessage
             + "\n-----------------------------------");
+        //Log error
+        logFile.println(className + " - " + errorMessage);
     }
 }

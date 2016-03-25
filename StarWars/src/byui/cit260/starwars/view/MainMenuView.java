@@ -34,9 +34,11 @@ public class MainMenuView extends View {
                 break;
             case 'L':
                 loadSavedGame();
+                this.loadSavedGame();
                 break;
             case 'S':
                 saveCurrentGame();
+                this.saveCurrentGame();
                 break;
             case 'H':
                 helpMenu();
@@ -63,12 +65,24 @@ public class MainMenuView extends View {
     }
 
     private void saveCurrentGame() {
-        System.out.println("CALLED START NEW GAME - NOT IMPLEMENTED YET");
+        this.console.println("\n\nEnter the file path for file where the game is to be saved.");
+        
+        String filePath = this.getInput();
+        
+        try{
+            //Load a saved game
+            GameController.getSavedGame(filePath);
+            }catch (Exception ex){
+                ErrorView.display("MainMenuView", ex.getMessage());
+            }
+        //Display Game Menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void helpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.display();
     }
-
+    
 }

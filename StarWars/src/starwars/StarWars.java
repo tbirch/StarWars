@@ -26,6 +26,8 @@ public class StarWars {
     private static BufferedReader inFile = null;
     
     private static PrintWriter logFile = null;
+
+    
     
     
     /**
@@ -36,6 +38,9 @@ public class StarWars {
         try{
             StarWars.inFile = new BufferedReader(new InputStreamReader(System.in));
             StarWars.outFile = new PrintWriter(System.out, true);
+            
+            String filePath = "log.txt";
+            StarWars.logFile = new PrintWriter(filePath);
         StartProgramView start = new StartProgramView();
         start.startProgram();
         return;
@@ -49,6 +54,9 @@ public class StarWars {
                     StarWars.inFile.close();
             if (StarWars.outFile != null()
                     StarWars.outFile.close();
+                
+            if (StarWars.logFile != null)
+                StarWars.logFile.close();
                 }
              catch (IOException ex){
                 System.out.println("Error clossing files");
@@ -89,5 +97,12 @@ public class StarWars {
 
     public static PrintWriter getOutFile() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        StarWars.logFile = logFile;
     }
 }
