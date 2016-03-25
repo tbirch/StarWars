@@ -105,4 +105,8 @@ public class StarWars {
     public static void setLogFile(PrintWriter logFile) {
         StarWars.logFile = logFile;
     }
+
+    public static void setCurrentGame(Game game) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
