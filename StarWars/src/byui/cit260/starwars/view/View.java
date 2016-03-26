@@ -6,8 +6,11 @@
 package byui.cit260.starwars.view;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import starwars.StarWars;
 
 /**
@@ -51,17 +54,21 @@ public abstract class View implements ViewInterface {
         boolean validInput = false;
 
         while (!validInput) {
-            System.out.println("\n" + this.displayMessage);
-
-            input = this.keyboard.readLine();
-            input = input.trim();
-            input = input.toUpperCase();
-
-            if (input.length() < 1) {
-                System.out.println("\nInvalid value: You must enter a character.");
-                continue;
+            try {
+                System.out.println("\n" + this.displayMessage);
+                
+                input = this.keyboard.readLine();
+                input = input.trim();
+                input = input.toUpperCase();
+                
+                if (input.length() < 1) {
+                    System.out.println("\nInvalid value: You must enter a character.");
+                    continue;
+                }
+                break;
+            } catch (IOException ex) {
+                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
             }
-            break;
         }
         return input;
     }
