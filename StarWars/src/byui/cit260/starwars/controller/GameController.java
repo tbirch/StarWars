@@ -5,6 +5,7 @@
  */
 package byui.cit260.starwars.controller;
 
+import byu.cit260.starwars.exceptions.GameControlException;
 import byui.cit260.starwars.model.Enemy;
 import byui.cit260.starwars.model.Game;
 import byui.cit260.starwars.model.Map;
@@ -54,16 +55,16 @@ public class GameController {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     
         
-        try (FileInputStream fips = new FileInputStream(filePath)){
-            ObjectInputStream input = new ObjectStream(fips);
+       // try (FileInputStream fips = new FileInputStream(filePath)){
+       //     ObjectInputStream input = new ObjectStream(fips);
             
-            game = (Game) input.readObject(); //read the game object from file
-        }
-        catch(Exception e) {
-            throw new GameControlException(e.getMessage());
-        }
+       //     game = (Game) input.readObject(); //read the game object from file
+       // }
+       // catch(Exception e) {
+       //     throw new GameControlException(e.getMessage());
+       // }
         //close the output file
-        StarWars.setCurrentGame(game);
+        //StarWars.setCurrentGame(game);
     
     }
 }
