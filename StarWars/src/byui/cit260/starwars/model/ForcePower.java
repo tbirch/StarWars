@@ -46,11 +46,11 @@ public class ForcePower implements Serializable{
     public void setPower(int power) {
         this.power = power;
     }
-    public enum ForcePowerName {
-        choke (10),
-        push (20),
-        lighting( 30)
-    }
+    //public enum ForcePowerName {
+    //    choke (10),
+    //    push (20),
+    //    lighting(30)
+    //}
 
     @Override
     public String toString() {
