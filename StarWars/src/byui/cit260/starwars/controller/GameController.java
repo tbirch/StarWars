@@ -51,20 +51,20 @@ public class GameController {
         StarWars.setGame(g);
     }
 
-    public static void getSavedGame(String filePath) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static void getSavedGame(String filePath) throws GameControlException {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     
         
-       // try (FileInputStream fips = new FileInputStream(filePath)){
-       //     ObjectInputStream input = new ObjectStream(fips);
+       try (FileInputStream fips = new FileInputStream(filePath)){
+            ObjectInputStream input = new ObjectInputStream(fips);
             
-       //     game = (Game) input.readObject(); //read the game object from file
-       // }
-       // catch(Exception e) {
-       //     throw new GameControlException(e.getMessage());
-       // }
-        //close the output file
-        //StarWars.setCurrentGame(game);
+            game = (Game) input.readObject(); //read the game object from file
+        }
+        catch(Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+       //close the output file;
+       StarWars.setCurrentGame(game);
     
     }
 }
