@@ -11,7 +11,9 @@ import byui.cit260.starwars.model.Game;
 import byui.cit260.starwars.model.Map;
 import byui.cit260.starwars.model.Player;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import starwars.StarWars;
 
 /**
@@ -67,4 +69,17 @@ public class GameController {
        StarWars.setCurrentGame(game);
     
     }
-}
+
+    public static void SaveGame(Game game, String filePath) 
+        throws GameControlException {
+            try( FileOutputStream fops = new FileOutputStream(filePath)) {
+                ObjectOutputStream output = new ObjectOutputStream(fops);
+                
+                output.writeObject(game);
+            }
+            catch(Exception e) {
+                throw new GameControlException(e.getMessage());
+            }
+    }
+    }
+

@@ -60,11 +60,8 @@ public class MainMenuView extends View {
     }
 
     private void loadSavedGame() {
-        System.out.println("CALLED START NEW GAME - NOT IMPLEMENTED YET");
-    }
-
-    private void saveCurrentGame() {
-        this.console.println("\n\nEnter the file path for file where the game is to be saved.");
+        //System.out.println("CALLED START NEW GAME - NOT IMPLEMENTED YET");
+    this.console.println("\n\nEnter the file path for file where the game was saved.");
         
         String filePath = this.getInput();
         
@@ -77,6 +74,19 @@ public class MainMenuView extends View {
         //Display Game Menu
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
+        
+    }
+
+    private void saveCurrentGame() {
+        this.console.println("\n\nEnter the file path for file where the game is to be saved.");
+        String filePath = this.getInput();
+        
+        try {
+            //save the game to the specified file
+            GameController.SaveGame(StarWars.getGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }
 
     private void helpMenu() {
