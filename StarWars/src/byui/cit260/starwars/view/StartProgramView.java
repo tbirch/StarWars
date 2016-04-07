@@ -61,7 +61,7 @@ public class StartProgramView {
     
     public void displayBanner() {
         String welcome = "";
-        welcome = "TODO: A BANNER";
+        welcome = "Welcome Future Jedi Master!";
                 
         
         System.out.println(welcome);
